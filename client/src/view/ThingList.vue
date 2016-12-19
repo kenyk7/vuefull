@@ -92,11 +92,13 @@ export default {
       Object.assign(this.form, thing)
       this.formVisible = true
     },
-    deleteThing (thing) {
-      this.$confirm(`This action will remove the selected thing: ${thing.name} forever, still going on?`, this.$t('message.confirm.title'), {
+    deleteThing (thingData) {
+      this.$confirm(`This action will remove the selected thing: ${thingData.name} forever, still going on?`, this.$t('message.confirm.title'), {
+        confirmButtonText: this.$t('message.confirm.ok'),
+        cancelButtonText: this.$t('message.confirm.cancel'),
         type: 'warning'
       }).then(() => {
-        thing.delete({ _id: thing._id }).then(() => {
+        thing.delete({ _id: thingData._id }).then(() => {
           this.$message({
             type: 'success',
             message: this.$t('message.removed')
