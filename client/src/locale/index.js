@@ -3,7 +3,7 @@ import VueI18n from 'vue-i18n'
 // import store from '../store'
 Vue.use(VueI18n)
 
-import zh from './zh_CN'
-Vue.config.lang = 'zh_CN'
-Vue.locale('zh_CN', zh)
+import es from './es_ES'
+Vue.config.lang = 'es_ES'
+Vue.locale('es_ES', es)
 // store.dispatch('setupLocale')

@@ -56,8 +56,8 @@ export default {
             this.$router.push(this.$route.query.redirect || '/')
           }).catch((err) => {
             this.$notify({
-              title: '错误',
-              message: err.message || '用户名或密码错误',
+              title: this.$t('login.notifyError.title'),
+              message: err.message || this.$t('login.notifyError.description'),
               type: 'error',
               duration: 1500
             })

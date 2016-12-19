@@ -23,6 +23,7 @@
             <el-select v-model="config.form.locale">
               <el-option label="简体中文(zh_CN)" value="zh_CN"></el-option>
               <el-option label="English(en_US)" value="en_US"></el-option>
+              <el-option label="Spanish(es_ES)" value="es_ES"></el-option>
             </el-select>
           </el-form-item>
           <el-form-item :label="$t('header.pageLimit')" prop="pageLimit">
@@ -30,7 +31,7 @@
           </el-form-item>
         </el-form>
         <span slot="footer" class="dialog-footer">
-          <el-button @click.native="config.visible=false">{{$t('message.confirm.ok')}}</el-button>
+          <el-button @click.native="config.visible=false">{{$t('message.confirm.cancel')}}</el-button>
           <el-button type="primary" @click.native="saveConfig">{{$t('message.confirm.ok')}}</el-button>
         </span>
       </el-dialog>
