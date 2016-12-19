@@ -12,7 +12,7 @@
       <el-table-column property="_id" label="ID" sortable min-width="120"></el-table-column>
       <el-table-column property="username" :label="$t('users.model.username')" sortable min-width="120"></el-table-column>
       <el-table-column property="role" :label="$t('users.model.role')" min-width="90"></el-table-column>
-      <el-table-column inline-template :label="$t('datatable.operate')" align="center" width="100">
+      <el-table-column inline-template :label="$t('datatable.operate')" align="center" width="100" :context="_self">
         <el-button type="text" @click.native="deleteUser(row)">{{$t('toolbar.remove')}}</el-button>
       </el-table-column>
     </data-table>
@@ -95,11 +95,13 @@ export default {
         }
       })
     },
-    deleteUser (user) {
-      this.$confirm(`This action will remove the selected user: ${user.username} forever, still going on?`, this.$t('message.confirm.title'), {
+    deleteUser (userData) {
+      this.$confirm(`This action will remove the selected user: ${userData.username} forever, still going on?`, this.$t('message.confirm.title'), {
+        confirmButtonText: this.$t('message.confirm.ok'),
+        cancelButtonText: this.$t('message.confirm.cancel'),
         type: 'warning'
       }).then(() => {
-        user.delete({ _id: user._id }).then(() => {
+        user.delete({ _id: userData._id }).then(() => {
           this.$message({
             type: 'success',
             message: this.$t('message.removed')
